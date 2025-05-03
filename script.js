@@ -47,7 +47,7 @@ generateBillBtn.addEventListener('click', () =>
         resetBtn.disabled = false
         return;
     }
-    if(isNaN(tipPercentage.value) && noTipCheckbox.checked === false)
+    if (tipPercentage <= 0 && !noTipCheckbox.checked)
     {
         alert("Select 'Don't want to add tip' checkbox for no tips");
         billAmountInput.value = ''
