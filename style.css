@@ -1,0 +1,557 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9e6f0;
+    color: #333;
+}
+body.dark-theme
+{
+    background-color: #0f172a;
+    color: #f0f0f0;
+}
+
+/* Navbar Styling */
+body.dark-theme .navbar
+{
+    background: linear-gradient(135deg, #020024, #090979, #020024);
+    color: #0ff;
+    box-shadow: 0 0 24px rgb(19, 180, 195);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+body.dark-theme .Topic h1
+{
+    color: #0ff;
+}
+body.dark-theme .icon i
+{
+    color: #0ff;
+}
+.navbar
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 16px 28px;
+    margin: 20px;
+    background: linear-gradient(135deg, #ff9a9e, #f1d6dc, #e692b1, #dd3a76);
+    background-blend-mode: overlay;
+    color: #333;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+.navbar:hover
+{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+/* Dark Mode Toggle */
+.darkMode
+{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.darkMode label
+{
+    font-weight: 600;
+}
+#dark-mode
+{
+    appearance: none;
+    width: 50px;
+    height: 24px;
+    background: #ddd;
+    border-radius: 12px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: inset 0 0 5px #aaa;
+}
+#dark-mode:hover
+{
+    box-shadow: 0 0 12px #0ff, 0 0 24px #0ff;
+}
+#dark-mode::before
+{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    background: white;
+    transition: 0.4s;
+}
+#dark-mode:checked
+{
+    background: #222;
+}
+#dark-mode:checked::before
+{
+    transform: translateX(26px);
+    background: #0ff;
+}
+
+/* Heading */
+.Topic
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    overflow: hidden;
+    z-index: 1; /* ensure it's above other navbar elements */
+}
+.Topic h1
+{
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 2.5s steps(13, end) infinite alternate;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 12ch;
+    }
+}
+
+/* GitHub Icon */
+.icon
+{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 24px;
+}
+.icon i
+{
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #4b2e1e;
+}
+
+/* Light Mode Hover */
+body:not(.dark-theme) .icon i:hover
+{
+    color: rgb(19, 180, 195);
+    transform: scale(1.2) rotate(10deg);
+}
+body.dark-theme .icon i:hover
+{
+    color: #f0f2f3;
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* MAIN SECTION STYLING */
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 200px);
+}
+
+/* BILL INPUT SECTION */
+.bill-input
+{
+    background: #f5a5d1;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.764);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 320px;
+}
+body.dark-theme .bill-input
+{
+    background: rgb(20, 5, 88);
+    color: #f0f0f0;
+}
+.bill-input p
+{
+    margin: 0;
+    font-weight: bold;
+}
+
+/* INPUT CONTAINERS */
+.input-container
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #e91e63;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: white;
+}
+body.dark-theme .input-container
+{
+    background: #5b80c2;
+}
+body.dark-theme .input-container span
+{
+    color: white;
+}
+.input-container input
+{
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+.input-container span
+{
+    color: white;
+}
+body.dark-theme .input-container input
+{
+    color: #f0f0f0;
+}
+.gray-input
+{
+    background: lavender;
+    color: #d81b60;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    outline: none;
+    font-weight: bold;
+}
+body.dark-theme .gray-input
+{
+    background: #2d3748;
+    color: #f0f0f0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:disabled
+{
+    cursor: not-allowed;
+}
+/* TIP BUTTONS */
+.tip-container
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.tip-container.disabled
+{
+    opacity: 0.5;
+}
+.tip
+{
+    background: #e91e63;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.tip.selected
+{
+    outline: 4px solid #0ff;
+}
+.tip:hover
+{
+    background: #d81b60;
+    box-shadow: 0 0 12px #0ff, 0 0 24px #0ff;
+}
+.custom-tip:disabled
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.number-of-people:disabled
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* BUTTONS */
+.generate-bill-btn,
+.reset-btn
+{
+    background: #e91e63;
+    color: #000;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.generate-bill-btn:hover,
+.reset-btn:hover
+{
+    background: #0ff;
+    box-shadow: 0 0 12px #0ff, 0 0 24px #0ff;
+}
+.generate-bill-btn:disabled
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.reset-btn:disabled
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* OUTPUT SECTION */
+.bill-output
+{
+    background: #f5a5d1;
+    color: black;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+body.dark-theme .bill-output
+{
+    background: #1a202c;
+    color: white;
+}
+.bill-output p
+{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.bill-output span
+{
+    color: rgb(20, 5, 88);
+}
+body.dark-theme .bill-output span
+{
+    color: wheat;
+}
+/* Style the "No Tip" checkbox label */
+.no-tip-option {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #e91e63; /* Soft pink color for the text */
+    font-weight: 500;
+    gap: 10px;
+}
+
+/* Style the checkbox itself */
+.no-tip-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #e91e63; /* Magenta accent color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    border: 2px solid #e91e63; /* Magenta border */
+}
+
+/* Glowing effect on hover */
+.no-tip-option input[type="checkbox"]:hover {
+    background-color: rgba(233, 30, 99, 0.1); /* Light pink background on hover */
+    box-shadow: 0 0 8px rgba(233, 30, 99, 0.7); /* Glowing magenta effect */
+    transform: scale(1.1);
+}
+
+/* Change appearance when checked */
+.no-tip-option input[type="checkbox"]:checked {
+    background-color: #e91e63; /* Magenta background when checked */
+    box-shadow: 0 0 8px rgba(233, 30, 99, 0.9); /* Stronger magenta glow */
+}
+
+/* Add smooth transition to the label text */
+.no-tip-option label {
+    transition: color 0.3s;
+}
+
+/* Change text color on hover */
+.no-tip-option:hover label {
+    color: yellow; /* Magenta color when hovered */
+}
+
+
+@media (max-width: 768px)
+{
+    main
+    {
+        min-height: 117vh !important;
+        height: auto !important;
+
+        /* stop centering vertically */
+        justify-content: flex-start !important;
+
+        /* allow normal flow & scrolling */
+        position: static !important;
+        top: auto !important;
+        overflow: visible !important;
+
+        /* keep stacking & centering horizontally */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+
+        padding-bottom: 40px !important;
+    }
+    .navbar
+    {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    .Topic
+    {
+        position: static;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .tip-container
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar
+    {
+        padding: 12px;
+        margin: 10px;
+    }
+    .Topic h1
+    {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 360px)
+{
+    main
+    {
+        /* drop the giant min-height on tiny screens */
+        min-height: 127vh !important;
+        /* keep vertical flow from top */
+        justify-content: flex-start !important;
+        /* ensure full scroll */
+        overflow: visible !important;
+        padding-bottom: 60px !important;
+    }
+    .bill-input,
+    .bill-output
+    {
+        padding: 16px;
+        font-size: 0.9rem;
+    }
+    .input-container input,
+    .gray-input
+    {
+        font-size: 1rem;
+    }
+
+    .tip
+    {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+
+    .generate-bill-btn,
+    .reset-btn
+    {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+    .Topic h1
+    {
+        font-size: 18px;
+    }
+    .navbar
+    {
+        padding: 10px;
+        gap: 10px;
+        margin: 10px;
+    }
+    .icon i
+    {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 320px)
+{
+    main
+    {
+        /* same reset for the smallest phones */
+        min-height: 117vh !important;
+        justify-content: flex-start !important;
+        overflow: visible !important;
+        padding-bottom: 80px !important;
+    }
+    .tip-container
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .Topic h1
+    {
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        animation: typing 2.5s steps(10, end) infinite alternate;
+    }
+    .bill-input,
+    .bill-output
+    {
+        padding: 12px;
+        gap: 12px;
+    }
+    .generate-bill-btn,
+    .reset-btn
+    {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+}
