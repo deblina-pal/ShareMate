@@ -53,7 +53,7 @@ generateBillBtn.addEventListener('click', () =>
     }
     if ((isNaN(tipPercentage) || tipPercentage <= 0) && !noTipCheckbox.checked)
     {
-        alert("Please select a tip or write Custom tip in percentage or choose 'Don't want to add tip' checkbox");
+        alert("Please select a tip or write Custom Tip in percentage or choose 'Don't want to add tip' checkbox");
         billAmountInput.value = ''
         customTipInput.value = ''
         numberOfPeopleInput.value = ''
