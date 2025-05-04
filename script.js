@@ -51,9 +51,9 @@ generateBillBtn.addEventListener('click', () =>
     {
         alert("Error! Please enter number of people!");
     }
-    if (tipPercentage <= 0 && !noTipCheckbox.checked)
-        {
-        alert("Select 'Don't want to add tip' checkbox for no tips");
+    if ((isNaN(tipPercentage) || tipPercentage <= 0) && !noTipCheckbox.checked)
+    {
+        alert("Please select a tip or write Custom tip in percentage or choose 'Don't want to add tip' checkbox");
         billAmountInput.value = ''
         customTipInput.value = ''
         numberOfPeopleInput.value = ''
@@ -118,9 +118,17 @@ noTipCheckbox.addEventListener('change', () => {
 
 customTipInput.addEventListener('input', () =>
 {
-    tipPercentage = parseFloat(customTipInput.value);
-    [...tipContainer.children].forEach((tip) => tip.classList.remove('selected'))
-})
+    const customValue = parseFloat(customTipInput.value);
+    if (!isNaN(customValue) && customValue >= 0)
+    {
+        tipPercentage = customValue;
+    }
+    else
+    {
+        tipPercentage = 0;
+    }
+    [...tipsContainer.children].forEach((tip) => tip.classList.remove('selected'))
+});
 
 resetBtn.addEventListener('click', () =>
 {
